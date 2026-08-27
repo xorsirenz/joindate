@@ -1,0 +1,23 @@
+plugins {
+    id 'com.gradleup.shadow' version '9.2.2' apply false
+}
+
+allprojects {
+    group = 'dev.xorsirenz.joindate'
+    version = '1.0.0'
+
+    repositories {
+        mavenCentral()
+
+        maven {
+            name = 'PaperMC'
+            url = 'https://repo.papermc.io/repository/maven-public/'
+        }
+
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+    }
+}
+

@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+dependencies {
+    compileOnly(
+            'io.papermc.paper:paper-api:26.2.build.119-stable'
+    )
+
+    implementation project(':common')
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('shadowJar') {
+    archiveBaseName = 'JoinDate-Paper'
+    archiveVersion = project.version
+    archiveClassifier = ''
+
+    configurations = [
+            project.configurations.runtimeClasspath
+    ]
+
+    relocate(
+            'org.sqlite',
+            'dev.xorsirenz.joindate.libs.sqlite'
+    )
+
+    relocate(
+            'org.slf4j',
+            'dev.xorsirenz.joindate.libs.slf4j'
+    )
+}
+
+tasks.named('jar') {
+    enabled = false
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('shadowJar')
+}

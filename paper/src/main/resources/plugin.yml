@@ -1,0 +1,22 @@
+name: JoinDate
+version: 1.0.0
+main: dev.xorsirenz.joindate.paper.JoinDatePaper
+api-version: '26.2'
+description: tracks when a player first joins the server.
+folia-supported: true
+
+commands:
+  jd:
+    description: Shows when a player first joined
+    usage: /jd <player>
+    permission: joindate.lookup
+
+  joindate:
+    description: Shows when a player first joined
+    usage: /joindate <player>
+    permission: joindate.lookup
+
+permissions:
+  joindate.lookup:
+    description: Allows the player to use /jd and /joindate
+    default: true

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "joindate",
+  "version": "${version}",
+  "name": "JoinDate",
+  "description": "Tracks when a player first joins a server.",
+  "authors": [
+    "xorsirenz"
+  ],
+  "environment": "server",
+
+  "entrypoints": {
+    "main": [
+      "dev.xorsirenz.joindate.fabric.JoinDateFabric"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
+
